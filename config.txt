@@ -1,0 +1,11 @@
+a2enmod proxy_http
+a2enmod request
+a2enmod headers
+
+******************example***************************
+/etc/apache2/sites-available/000-default-le-ssl.conf
+ProxyPreserveHost On
+RequestHeader set X-Forwarded-Proto https
+RequestHeader set X-Forwarded-Port 443
+ProxyPass / http://127.0.0.1:8080/
+ProxyPassReverse / http://127.0.0.1:8080/
